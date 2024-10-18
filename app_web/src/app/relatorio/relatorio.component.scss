@@ -1,0 +1,34 @@
+table{
+    margin-top:200px;
+    width:90%;
+    margin:100px auto;
+}
+
+form{
+    margin:auto auto;
+    width:95%;
+    background: #eee;
+    padding: 20px;
+    margin-top: 15px;
+}
+
+ion-input,ion-select{
+    background: #dbdbdb;
+    margin-bottom:5px;
+}
+ion-datetime{
+    margin-bottom:5px;
+}
+@media only screen and (min-width: 1200px) {
+    form{
+        margin:auto auto;
+        width:50%;
+        background: #eee;
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+}
+th{
+    color:black !important;
+}

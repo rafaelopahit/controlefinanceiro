@@ -1,0 +1,12 @@
+RewriteEngine on
+
+php_value upload_max_filesize 500M
+php_value post_max_size 1000M
+php_value memory_limit 256M
+php_value max_input_vars 1000
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^(public)
+RewriteRule ^((?!storage).*)$ public/$1 [L]
+
+

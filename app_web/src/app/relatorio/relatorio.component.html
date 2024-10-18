@@ -1,0 +1,100 @@
+<ion-content [fullscreen]="true">
+  <div class="container-fluid">
+
+
+    <app-menu></app-menu>
+
+    <div class="col-12">
+
+      <div class="col-12 formulario">
+        <form [formGroup]="form" class="row">
+
+          <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-select placeholder="" label="Tipo Lançamento" formControlName="data_type" labelPlacement="stacked"
+              [ngClass]="{'campoinvalido':formularioenviado &&  form.controls['data_type'].errors}">
+              <ion-select-option value="">
+                Todos
+              </ion-select-option>
+              <ion-select-option value="1">Crédito</ion-select-option>
+              <ion-select-option value="-1">Débito</ion-select-option>
+            </ion-select>
+
+          </div>
+          <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-select placeholder="" label="Forma de Pagamento" formControlName="payment_form"
+              [ngClass]="{'campoinvalido':formularioenviado &&  form.controls['payment_form'].errors}"
+              labelPlacement="stacked">
+              <ion-select-option value="">
+                Todas
+              </ion-select-option>
+              <ion-select-option value="{{ enum.value }}" *ngFor="let enum of formaspagamento ">
+                {{ enum.nome }}
+              </ion-select-option>
+
+            </ion-select>
+
+          </div>
+          <div class="col-lg-6 col-sm-12 col-md-12 col-xs-12">
+            Data Recebimento Inicial
+            <ion-datetime formControlName="payment_date_start"></ion-datetime>
+
+          </div>
+
+          <div class="col-lg-6 col-sm-12 col-md-12 col-xs-12">
+            Data Recebimento Final
+            <ion-datetime formControlName="payment_date_end"></ion-datetime>
+
+          </div>
+
+
+          <div class="col-lg-4 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-select placeholder="" label="tipo" formControlName="export_type" labelPlacement="stacked">
+              <ion-select-option value="1">
+                Xls
+              </ion-select-option>
+              <ion-select-option value="2">
+                PDF
+              </ion-select-option>
+              <ion-select-option value="3">
+                HTML
+              </ion-select-option>
+              <ion-select-option value="4">
+                CSV
+              </ion-select-option>
+              <ion-select-option value="5">
+                ODS
+              </ion-select-option>
+            </ion-select>
+
+          </div>
+
+          <input type="hidden" formControlName="id" value="0">
+
+
+          <div class="col-lg-3 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-button color="primary" class="btn btn-block" (click)="generateReport()">Gerar Relatório</ion-button>
+
+          </div>
+
+        </form>
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <footer></footer>
+
+</ion-content>

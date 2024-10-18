@@ -1,0 +1,124 @@
+<ion-content [fullscreen]="true">
+  <div class="container-fluid">
+
+
+    <app-menu></app-menu>
+
+    <div class="col-12">
+
+      <div class="col-12 formulario">
+        <form [formGroup]="form" class="row">
+          <div class="col-lg-3 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-input placeholder="" label="Valor" formControlName="data_value" labelPlacement="stacked"
+              (ionInput)="formataNumero($event)"
+              [ngClass]="{'campoinvalido':formularioenviado && form.controls['data_value'].errors}"></ion-input>
+
+          </div>
+
+          <div class="col-lg-3 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-select placeholder="" label="Tipo Lançamento" formControlName="data_type" labelPlacement="stacked"
+              [ngClass]="{'campoinvalido':formularioenviado &&  form.controls['data_type'].errors}">
+              <ion-select-option value="1">Crédito</ion-select-option>
+              <ion-select-option value="-1">Débito</ion-select-option>
+            </ion-select>
+
+          </div>
+
+          <div class="col-lg-6 col-sm-12 col-md-12 col-xs-12">
+            Data Recebimento
+            <ion-datetime formControlName="payment_date"></ion-datetime>
+
+          </div>
+          <input type="hidden" formControlName="id" value="0">
+          <div class="col-lg-3 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-select placeholder="" label="Forma de Pagamento" formControlName="payment_form"
+              [ngClass]="{'campoinvalido':formularioenviado &&  form.controls['payment_form'].errors}"
+              labelPlacement="stacked">
+              <ion-select-option value="{{ enum.value }}" *ngFor="let enum of formaspagamento ">
+                {{ enum.nome }}
+              </ion-select-option>
+
+            </ion-select>
+
+          </div>
+
+          <div class="col-lg-3 col-sm-12 col-md-12 col-xs-12">
+
+            <ion-button color="primary" class="btn btn-block" (click)="save()">Salvar</ion-button>
+
+          </div>
+
+        </form>
+
+
+      </div>
+
+      <table class="table table-bordered table table-striped-columns table-dark table-hover">
+        <thead>
+          <th>
+            ID
+          </th>
+          <th>
+            Valor
+          </th>
+          <th>
+            Tipo
+          </th>
+          <th>
+            Forma Pagamento
+          </th>
+          <th>
+            Data
+          </th>
+          <th>
+            Ações
+          </th>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let row of rows">
+            <td>
+              {{row.id}}
+            </td>
+            <td>
+              {{row.data_value}}
+            </td>
+            <td>
+              {{row.data_type==1 ? "Crédito":"Débito"}}
+            </td>
+            <td>
+              {{ labelFormadePagamento(row.payment_form.toString()).nome}}
+            </td>
+            <td>
+              {{row.payment_date | date : 'dd/MM/yyyy HH:mm'}}
+            </td>
+            <td>
+              <i class="fa fa-pencil" (click)="get(row.id)"></i>
+              <i class="fa fa-remove" style="margin-left:10px;" (click)="remove(row.id)"></i>
+            </td>
+
+          </tr>
+
+
+        </tbody>
+
+      </table>
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <footer></footer>
+
+</ion-content>
