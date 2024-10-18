@@ -11,10 +11,10 @@
 
 Tecnologias utilizadas:
 
-- Php
-- Laravel
-- Angular
-- Ionic
+- Php 8.2
+- Laravel 11
+- Angular 18
+- Ionic 8
 - Mysql
 
 ## Instalação
@@ -26,6 +26,7 @@ Tecnologias utilizadas:
 - preencha as variáveis relativas a esse banco de dados no arquivo .env
 - vá a pasta do repositório e entre na subpasta api, execute o comando docker compose up -d que criará o container api
 - entre no container api e instale as dependências usando o comando composer install
+- execute o comando php artisan key:generate
 - execute o comando php artisan migrate para executar as migrations ainda dentro do container
 - nesse ponto o primeiro projeto estará funcionando
 - volte na pasta principal e entre na subpasta app_web

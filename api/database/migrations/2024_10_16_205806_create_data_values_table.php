@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->integer("data_type");
             $table->integer("user_id");
             $table->integer("payment_form");
-            $table->timestamp("payment_date");
+            $table->timestamp("payment_date")->nullable();
         });
     }
 

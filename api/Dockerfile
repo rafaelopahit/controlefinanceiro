@@ -2,7 +2,7 @@ FROM ubuntu/apache2:2.4-22.04_beta
 
 ENV FILE_VERSION=0001
 
-LABEL maintainer="Rafael Dantas Fortes | Dockerfile configuration - v ${FILE_VERSION}"
+LABEL maintainer="Dockerfile configuration - v ${FILE_VERSION}"
 
 ENV PHP_VERSION=8.2
 

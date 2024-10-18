@@ -1,8 +1,8 @@
 FROM ubuntu/apache2:2.4-22.04_beta
 
-ENV FILE_VERSION=0002
+ENV FILE_VERSION=0001
 
-LABEL maintainer="Rafael Dantas Fortes | Dockerfile configuration - v ${FILE_VERSION}"
+LABEL maintainer="Dockerfile configuration - v ${FILE_VERSION}"
 
 ENV GRADLE_VERSION=6.3
 
@@ -62,7 +62,7 @@ RUN  service apache2 stop && service apache2 start
 RUN yes Y | wget 'https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip' -P /tmp && yes Y | unzip -d /opt/Android /tmp/commandlinetools-linux-6200805_latest.zip 
 RUN yes Y | /opt/Android/tools/bin/sdkmanager --sdk_root=/opt/Android "build-tools;${ANDROID_BUILD_TOOLS_LEVEL}" 
 #RUN yes Y | /opt/Android/tools/bin/sdkmanager --licenses
-WORKDIR /var/www/html/platforms/browser/www
+WORKDIR /var/www/html
 RUN npm install -g @angular/cli
 #RUN ng add @ionic/cordova-builders
 RUN apt-get install gradle -y 

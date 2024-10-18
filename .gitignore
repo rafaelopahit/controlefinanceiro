@@ -3,13 +3,11 @@
 /public/hot
 /public/storage
 /public/resources/js/plugins
-/storage/*.key
-/storage/*
+/api/storage/*.key
 /vendor
 /vendor/*
 /resources/js/plugins
 /resources/admin
-/api/storage/*
 .env
 .env.backup
 .phpunit.result.cache
